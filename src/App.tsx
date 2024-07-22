@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import Sidebar from './components/Sidebar'
 
 
@@ -63,9 +62,9 @@ function App() {
   }, [timer])
 
   return (
-    <>
+    <div className='w-16 md:w-32 lg:w-48 bg-pink-600'>
       <input type="number" value={initialTime} onChange={handleTimerChange}/>
-      <h1>
+      <h1 className="text-3xl font-bold underline">
         {formatSecondsToMinutesSeconds(timer)}
       </h1>
       { timerCurrentState === ('STOPPED' || 'PAUSED') &&  <button onClick={startTimer}>PLAY</button> }
@@ -73,7 +72,7 @@ function App() {
       { timerCurrentState === 'RUNNING' && <button onClick={stopTimer}>STOP</button> }
       <button onClick={toggleSidebar}>Toggle Sidebar</button>
       {isSidebarOpen && <Sidebar toggleSidebar={toggleSidebar} /> }
-    </>
+    </div>
   )
 }
 
